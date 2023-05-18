@@ -104,10 +104,10 @@
                         Отчеты
                     </button>
                     <ul class="dropdown-menu nested-menu list-unstyled" aria-labelledby="reports">
-                        <li class="nested-menu__item"><a href="#">Суммарный</a></li>
-                        <li class="nested-menu__item"><a href="#">По конверсиям</a></li>
-                        <li class="nested-menu__item"><a href="#">По источникам</a></li>
-                        <li class="nested-menu__item"><a href="#">По офферам</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">Суммарный</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link active-link" href="#">По конверсиям</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">По источникам</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">По офферам</a></li>
                     </ul>
                 </li>
                 <li class="menu__item">
@@ -164,13 +164,268 @@
         </nav>
         <main class="main">
             <div class="main__container">
-                <div class="row">
-                    <div class="col-lg-6" style="background-color: red;">
-                        <div class="col-lg-6">1</div>
-                        <div class="col-lg-6">2</div>
+                <div class="row ordering">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <section class="income ">
+                            <div class="row">
+                                <div class="col-xs-12 dropdown hidden-sm hidden-md hidden-lg">
+                                    <div class="income__dropdown">
+                                        <button class="income__drop-btn dropdown-toggle" type="button" id="incomeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                          Статистика доходов
+                                          <span class="glyphicon glyphicon-menu-down"></span>
+                                        </button>
+                                        <ul class="dropdown-menu static" aria-labelledby="incomeDropdown">
+                                            <li class="income__total col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <h2 class="income__title">Заработано всего</h2>
+                                                <p class="income__amount">100₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__month col-lg-6 col-md-5 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-1">
+                                                <h2 class="income__title">Заработано за месяц</h2>
+                                                <p class="income__amount">100₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__avalibale col-md-12 col-sm-12 col-xs-12">
+                                                <h2 class="income__title">Доступно к выводу / Холд</h2>
+                                                <p class="income__amount">100₽ / 10₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__actions col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <button type="button" class="income__get-pay" data-toggle="modal" data-target="#getPayModal">Вывести средства</button>
+                                                <button class="income__setup">Указать реквизиты</button>
+                                                <button type="button" class="income__payment-rules" data-toggle="modal" data-target="#paymentRules">Порядок оплаты</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-6 col-md-7 col-sm-6">
+                                    <div class="income__total">
+                                        <h2 class="income__title">Заработано всего</h2>
+                                        <p class="income__amount">100₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-6 col-md-5 col-sm-6 col-lg-offset-0">
+                                    <div class="income__month" >
+                                        <h2 class="income__title">Заработано за месяц</h2>
+                                        <p class="income__amount">100₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-md-12 col-sm-12">
+                                    <div class="income__avalibale ">
+                                        <h2 class="income__title">Доступно к выводу / Холд</h2>
+                                        <p class="income__amount">100₽ / 10₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-12 col-md-12 col-sm-12">
+                                    <div class="income__actions">
+                                        <button type="button" class="income__get-pay" data-toggle="modal" data-target="#getPayModal">Вывести средства</button>
+                                        <button class="income__setup">Указать реквизиты</button>
+                                        <button type="button" class="income__payment-rules" data-toggle="modal" data-target="#paymentRules">Порядок оплаты</button>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="paymentRules">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <h3 class="modal__title">Минимальная сумма вывода</h3>
+                                            <p class="modal__notice">3000 рублей (В некоторых офферах может отличаться. См. в описании оффера).</p>
+                                            <p class="modal__info">
+                                                Запрашивать вывод можно неограниченное количество раз. Помимо стандартных средств для вывода, вы можете пополнить рекламный кабинет прямо из личного кабинета на Liknot.ru в разделе «Агентский кабинет».
+                                            </p>
+                                            <h4 class="modal__second-title">С 01.02.2022 года комиссия на вывод средств:</h4>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <div class="key">Webmoney</div>
+                                                    <div class="value">5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Яндекс</div>
+                                                    <div class="value">2,5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Расчётный счёт<span>(ИП, ООО)</span></div>
+                                                    <div class="value">компенсация налога 3%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Банковская карта<span>(максимальная сумма вывода 250 000)</span></div>
+                                                    <div class="value">3,5% + 99руб.</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Qiwi кошелек</div>
+                                                    <div class="value">2,5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Банковская карта Украины</div>
+                                                    <div class="value">4%</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="getPayModal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <h3 class="modal__title">При выводе на расчётный счет вы получаете компенсацию 3%.</h3>
+                                            <p class="modal__info">Подробнее можно узнать у вашего менеджера</p>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="payAmount" class="col-md-3 col-sm-4 col-xs-12 control-label">Сумма вывода</label>
+                                                    <div class="col-md-4 col-xs-12">
+                                                      <input type="text" class="form-control" id="payAmount" value="100₽" placeholder="Введите сумму">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3 col-sm-4 col-xs-12 control-label">Способ выплаты</div>
+                                                    <div class="col-md-4 col-xs-12 value">Карта</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3 col-sm-4 col-xs-12 control-label">Реквизиты</div>
+                                                    <div class="col-md-4 col-xs-12 value">1234 5678 1234 5678</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="payPass" class="col-md-3 col-sm-4 col-xs-12 control-label">Пароль</label>
+                                                    <div class="col-md-4 col-xs-12">
+                                                      <input type="password" class="form-control" id="payPass" placeholder="Введите пароль">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    <div class="col-lg-6" style="background-color: blue;">112</div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <section class="user">
+                            <div class="row row-no-gutters ordering">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="user__payment-info col-lg-12 col-md-12">
+                                        <h2 class="user__name">{user_nickname}</h2>
+                                        <hr>
+                                        <div class="payment-info__list">
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Платежная система</div>
+                                                <div class="item__value">
+                                                    <p>Карта</p>
+                                                </div>
+                                            </div>
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Реквизиты</div>
+                                                <div class="item__value" title="1">
+                                                    <p>Укажите реквизиты</p> 
+                                                    <button class="item__btn" title="This is a tooltip This is a tooltip">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="10" stroke="#100F0F" stroke-width="1.4"/>
+                                                            <path d="M10 10.5V10.25C10 9.00736 11.022 8 12.2646 8V8C13.4912 8 14.5 8.99435 14.5 10.2209V10.2209C14.5 10.7252 14.3284 11.2145 14.0133 11.6083L12.5 13.5" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            <path d="M11.7165 16.1053C11.7165 15.6727 12.0672 15.322 12.4999 15.322C12.9325 15.322 13.2832 15.6727 13.2832 16.1053C13.2832 16.538 12.9325 16.8887 12.4999 16.8887C12.0672 16.8887 11.7165 16.538 11.7165 16.1053Z" fill="#100F0F"/>
+                                                            </svg>  
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Статус</div>
+                                                <div class="item__value" title="1">
+                                                    <p>Новичок</p>
+                                                    <button type="button" class="item__btn" title="This is a tooltip This is a tooltip" data-toggle="modal" data-target="#statusModal">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="10" stroke="#100F0F" stroke-width="1.4"/>
+                                                            <path d="M10 10.5V10.25C10 9.00736 11.022 8 12.2646 8V8C13.4912 8 14.5 8.99435 14.5 10.2209V10.2209C14.5 10.7252 14.3284 11.2145 14.0133 11.6083L12.5 13.5" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            <path d="M11.7165 16.1053C11.7165 15.6727 12.0672 15.322 12.4999 15.322C12.9325 15.322 13.2832 15.6727 13.2832 16.1053C13.2832 16.538 12.9325 16.8887 12.4999 16.8887C12.0672 16.8887 11.7165 16.538 11.7165 16.1053Z" fill="#100F0F"/>
+                                                            </svg>  
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="statusModal">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <h3 class="modal__title">Уважаемые вебмастера!</h3>
+                                                        <div class="modal__subtitle">В  нашей системе предусмотрено три статуса партнеров — новичок, профи и  эксперт.</div>
+                                                        <p class="modal__info">Все вебмастера после регистрации получают статус «новичок». Партнеры с  этим статусом могут использовать весь функционал системы и  подключать публичные офферы.</p>
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <div class="status-name">Статус «новичок»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со  статусом «новичок» получают заработанные средства после прихода денег от рекламодателя (обычно в  период 15 —  30 (31) число месяца за  трафик предыдущего). 
+                                                                    Некоторые рекламодатели платят чуть быстрее, некоторые чуть дольше стандартных сроков.
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <div class="status-name">Статус «профи»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со статусом «профи» получают проверенные вебмастера, проработавшие с  нами минимум шесть месяцев и  имеющие оборот 250 000 в  месяц и  больше.
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <div class="status-name">Статус «эксперт»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со статусом «эксперт» получают проверенные вебмастера с  оборотом более полумиллиона рублей в месяц.
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                        <p class="modal__info">
+                                                            Для получения статуса «профи» или «эксперт» вам надо обратиться к своему менеджеру, он  рассмотрит индивидуально ваше обращение. Статусы «профи» и «эксперт» могут открыть для вас индивидуальные условия сотрудничества. Обратите внимание!
+                                                        </p>
+                                                        <p class="modal__notice">
+                                                            Возможность досрочного вывода вы можете обсудить с  вашим менеджером. Платёжный день —  пятница. Важно. Заявки на  вывод принимаются до 12 часов пятницы. Запросы, сделанные позже, автоматически переносятся на следующий платёжный день.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-5 col-lg-offset-0 col-md-offset-1">
+                                    <div class="user__manager">
+                                        <h2 class="manager__title">Персональный менеджер</h2>
+                                        <hr>
+                                        <ul class="manager__contacts list-unstyled ">
+                                            <h3 class="contacts__title">Напишите нам</h3>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="#">
+                                                    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.0581 16.7438C6.69647 16.7438 5.1949 15.0902 5.1949 13.8493C5.1949 13.2101 5.66367 12.7664 6.30875 12.7664C7.74849 12.7664 7.37247 14.8362 10.0581 14.8362C11.4293 14.8362 12.1888 14.0883 12.1888 13.3229C12.1888 12.8625 11.9641 12.3536 11.0574 12.1288L8.06936 11.381C5.66284 10.776 5.22582 9.47079 5.22582 8.24665C5.22582 5.70058 7.61646 4.74466 9.86255 4.74466C11.9273 4.74466 14.3689 5.89193 14.3689 7.41773C14.3689 8.07284 13.794 8.45387 13.1548 8.45387C11.9273 8.45387 12.1538 6.75176 9.67537 6.75176C8.44788 6.75176 7.76018 7.3066 7.76018 8.10292C7.76018 8.89925 8.72363 9.1541 9.56257 9.34546L11.766 9.83595C14.1817 10.3783 14.7942 11.7963 14.7942 13.1315C14.7942 15.2005 13.2049 16.7447 10.013 16.7447L10.0581 16.7438ZM19.2747 12.6653L19.2505 12.7781L19.2137 12.5775C19.2262 12.6151 19.2505 12.6394 19.263 12.6778C19.3633 12.1138 19.4142 11.5389 19.4142 10.9632C19.4142 9.68554 19.1627 8.44635 18.6639 7.26983C18.1884 6.14345 17.4982 5.12904 16.6359 4.26503C15.7593 3.40186 14.7583 2.71416 13.6319 2.23787C12.5306 1.71061 11.2914 1.46077 10.0155 1.46077C9.41383 1.46077 8.80886 1.51926 8.22478 1.63123L8.32421 1.68136L8.12451 1.65379L8.22394 1.6329C7.41843 1.20173 6.51515 0.972778 5.59766 0.972778C4.10278 0.972778 2.69814 1.55602 1.64028 2.6164C0.582411 3.67593 0 5.08642 0 6.58464C0 7.53973 0.243994 8.47727 0.705243 9.30702L0.721955 9.2034L0.756215 9.40311L0.706079 9.30702C0.610821 9.84598 0.562356 10.3925 0.562356 10.9406C0.562356 12.2191 0.813035 13.4616 1.30102 14.6306C1.77564 15.7687 2.45248 16.7831 3.32902 17.6463C4.19302 18.5236 5.2066 19.198 6.33299 19.6868C7.49781 20.1882 8.737 20.4372 10.013 20.4372C10.5636 20.4372 11.1276 20.387 11.6649 20.2876L11.5655 20.2358L11.766 20.2742L11.6532 20.2993C12.4905 20.7747 13.4297 21.0271 14.4057 21.0271C15.8956 21.0271 17.296 20.4505 18.3606 19.3868C19.4126 18.3348 20 16.921 20 15.4186C20 14.4677 19.7502 13.5285 19.2872 12.6895" fill="#100F0F"/>
+                                                     </svg>
+                                                    <p>Skype</p>    
+                                                </a>
+                                            </li>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="#">
+                                                    <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.3749 7.13488C6.74359 4.79582 10.3236 3.25377 12.1148 2.50873C17.2292 0.381491 18.2919 0.0119658 18.9846 -0.000236111C19.1369 -0.00291979 19.4776 0.034836 19.6982 0.213877C19.8845 0.365055 19.9358 0.569276 19.9603 0.71261C19.9848 0.855944 20.0154 1.18246 19.9911 1.43759C19.714 4.34963 18.5147 11.4164 17.9046 14.6779C17.6465 16.058 17.1382 16.5207 16.6461 16.566C15.5766 16.6644 14.7645 15.8592 13.7287 15.1802C12.1078 14.1177 11.1921 13.4563 9.61879 12.4195C7.80053 11.2213 8.97923 10.5628 10.0155 9.48649C10.2866 9.20483 14.9987 4.91884 15.0899 4.53003C15.1013 4.4814 15.1119 4.30014 15.0042 4.20443C14.8965 4.10872 14.7376 4.14145 14.6229 4.16748C14.4604 4.20438 11.871 5.91584 6.85486 9.30188C6.11988 9.80657 5.45416 10.0525 4.8577 10.0396C4.20015 10.0254 2.93528 9.66779 1.99498 9.36214C0.84166 8.98724 -0.074973 8.78903 0.00484519 8.15234C0.0464194 7.82071 0.503103 7.48156 1.3749 7.13488Z" fill="#100F0F"/>
+                                                    </svg>
+                                                    <p>Telegram</p>    
+                                                </a>
+                                            </li>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="mailto:">
+                                                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.36364 15.0039H4.54545V7.27662L0 3.86753V13.6403C0 14.3948 0.611364 15.0039 1.36364 15.0039Z" fill="#100F0F"/>
+                                                        <path d="M15.4545 15.0039H18.6364C19.3909 15.0039 20 14.3925 20 13.6403V3.86753L15.4545 7.27662" fill="#100F0F"/>
+                                                        <path d="M15.4545 1.36763V7.27662L20 3.86753V2.04945C20 0.363081 18.075 -0.598282 16.7273 0.413081" fill="#100F0F"/>
+                                                        <path d="M4.54545 7.27662L4.54545 1.36753L10 5.45844L15.4545 1.36763V7.27662L10 11.3675" fill="#100F0F"/>
+                                                        <path d="M0 2.04945V3.86753L4.54545 7.27662L4.54545 1.36753L3.27273 0.413081C1.92273 -0.598282 0 0.363081 0 2.04945Z" fill="#100F0F"/>
+                                                    </svg>                                                    
+                                                    <p>E-mail</p>    
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
         </main>

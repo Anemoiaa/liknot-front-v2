@@ -5,6 +5,13 @@
     &::-webkit-scrollbar-thumb:hover {background: #555;}
 }
 
+%violet-btn {
+    background-color: $violet-light;
+    &:hover {background-color: #5F005F;}
+    &:active {background-color: #410041;}
+    &:disabled {color: $text-disabled; background-color: #E2E2E2;}
+}
+
 %lk-toggle {
     display: flex;
     align-items: center;

@@ -149,6 +149,20 @@ body {
   background: #555;
 }
 
+.income .income__actions .income__get-pay {
+  background-color: #480048;
+}
+.income .income__actions .income__get-pay:hover {
+  background-color: #5F005F;
+}
+.income .income__actions .income__get-pay:active {
+  background-color: #410041;
+}
+.income .income__actions .income__get-pay:disabled {
+  color: #A4A4A4;
+  background-color: #E2E2E2;
+}
+
 .header .header__lk-toggle {
   display: flex;
   align-items: center;
@@ -207,6 +221,159 @@ body {
   height: 65px;
   padding-top: 20px;
 }
+.modal-dialog {
+  width: 100%;
+  max-width: 784px;
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.modal-header {
+  padding: 0;
+  border: 0;
+}
+
+.modal__title {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+
+.modal__info {
+  margin-top: 5px;
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #838383;
+}
+
+#getPayModal form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#getPayModal form .form-group {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+#getPayModal form .form-group .control-label {
+  padding: 0;
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #838383;
+  text-align: left;
+}
+#getPayModal form .form-group input.form-control {
+  padding: 11px 20px;
+  border-radius: 8px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #838383;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+#getPayModal form .form-group .value {
+  font-family: "Manrope";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+
+#paymentRules .modal__notice {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+#paymentRules .modal__info {
+  margin-top: 0;
+  font-size: 12px;
+}
+#paymentRules .modal__second-title {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+}
+#paymentRules ul {
+  margin-top: 20px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#paymentRules ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#paymentRules ul li div {
+  width: 48%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+}
+#paymentRules ul li .key span {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #838383;
+}
+#paymentRules ul li .value {
+  font-size: 12px;
+}
+
+#statusModal .modal__subtitle {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+}
+#statusModal .modal__info {
+  font-size: 12px;
+}
+#statusModal ul {
+  margin-top: 20px;
+  padding: 20px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid #838383;
+  border-bottom: 1px solid #838383;
+}
+#statusModal ul .status-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+#statusModal ul .status-description {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+}
+#statusModal .modal__notice {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .menu .menu__list::-webkit-scrollbar {
   width: 4px;
   border-radius: 50px;
@@ -222,6 +389,30 @@ body {
   background: #555;
 }
 
+.income .income__actions .income__get-pay {
+  background-color: #480048;
+}
+.income .income__actions .income__get-pay:hover {
+  background-color: #5F005F;
+}
+.income .income__actions .income__get-pay:active {
+  background-color: #410041;
+}
+.income .income__actions .income__get-pay:disabled {
+  color: #A4A4A4;
+  background-color: #E2E2E2;
+}
+
+.menu-closed .menu .logo {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 17px;
+}
+.menu-closed .menu .logo a {
+  width: 18px;
+  height: 25px;
+  background-size: cover;
+}
 .menu-closed .burger-menu span {
   display: block;
 }
@@ -229,7 +420,7 @@ body {
   display: none;
 }
 .menu-closed .menu .menu__list {
-  align-items: center;
+  align-items: flex-end;
 }
 .menu-closed .menu .menu__list .menu__link {
   text-indent: -99999px;
@@ -265,10 +456,6 @@ body {
 
 .header, .main {
   margin-left: 135px;
-}
-
-.main {
-  height: 1000px;
 }
 
 .menu {
@@ -352,7 +539,7 @@ body {
 .menu .menu__item .nested-menu .nested-menu__item::marker {
   font-size: 12px;
 }
-.menu .menu__item .nested-menu .nested-menu__item a {
+.menu .menu__item .nested-menu .nested-menu__item .nested-menu__link {
   display: inline;
   margin-left: 5px;
   padding: 0;
@@ -363,7 +550,220 @@ body {
   line-height: 1.3;
   color: #F6F4F1;
 }
-.menu .menu__item .nested-menu .nested-menu__item a:hover {
+.menu .menu__item .nested-menu .nested-menu__item .nested-menu__link.active-link {
+  color: #FFC700;
+}
+.menu .menu__item .nested-menu .nested-menu__item .nested-menu__link:hover {
   background-image: unset;
   background-color: transparent;
+}
+
+.main {
+  padding-top: 30px;
+}
+
+.income__dropdown .dropdown-menu {
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+}
+.income__dropdown .dropdown-backdrop {
+  display: none;
+}
+
+.income .income__total, .income .income__month, .income .income__avalibale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 169px;
+  padding: 13px 0 15px 20px;
+  background-color: #252542;
+  border-radius: 12px;
+  color: #FAF4F4;
+}
+.income .income__avalibale {
+  max-width: unset;
+  margin-top: 30px;
+}
+.income .income__title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #FAF4F4;
+}
+.income .income__amount {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.37;
+}
+.income .income__show-stats {
+  background: none;
+  outline: none;
+}
+.income .income__actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 20px;
+}
+.income .income__actions button {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.37;
+}
+.income .income__actions .income__get-pay {
+  color: #fff;
+}
+.income .income__actions .income__setup {
+  border: 1px solid #480048;
+  background-color: #fff;
+  color: #100F0F;
+}
+.income .income__actions .income__setup:disabled {
+  color: #A4A4A4;
+}
+.income .income__actions .income__payment-rules {
+  max-width: 129px;
+  background-color: #fff;
+  color: #100F0F;
+  text-decoration: underline;
+}
+.income .income__actions .income__payment-rules:hover {
+  color: #5F005F;
+}
+.income .income__actions .income__payment-rules:active {
+  color: #410041;
+}
+.income .income__actions .income__payment-rules:disabled {
+  color: #A4A4A4;
+}
+
+.user .user__payment-info {
+  max-height: 169px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #11141F;
+}
+.user .user__payment-info .user__name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+  color: #fff;
+}
+.user .user__payment-info hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-top: 1px solid #fff;
+}
+.user .user__payment-info .payment-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.user .user__payment-info .payment-info__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user .user__payment-info .payment-info__item .item__key {
+  font-size: 14px;
+  line-height: 1.3;
+  color: #B3B3B3;
+}
+.user .user__payment-info .payment-info__item .item__value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 130%;
+  color: #fff;
+}
+.user .user__payment-info .payment-info__item .item__value .item__btn {
+  position: relative;
+  display: inline-flex;
+  background-color: transparent;
+  outline: none;
+}
+.user .user__payment-info .payment-info__item .item__value .item__btn svg * {
+  stroke: #fff;
+}
+.user .user__payment-info .payment-info__item .item__value .item__btn:hover svg * {
+  stroke: #FFC700;
+}
+.user .user__payment-info .payment-info__item .item__value .item__btn[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: calc(-100% - 24px);
+  right: 0;
+  width: 120px;
+  padding: 5px 10px;
+  background-color: #FFC700;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+.user .user__payment-info .payment-info__item .item__value .item__btn[title]:hover::before {
+  content: " ";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #FFC700 transparent transparent transparent;
+}
+.user .user__manager {
+  margin-top: 30px;
+  height: 169px;
+  max-height: 169px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #11141F;
+}
+.user .user__manager .manager__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #fff;
+}
+.user .user__manager hr {
+  border-top: 1px solid #B3B3B3;
+}
+.user .user__manager .manager__contacts {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.user .user__manager .manager__contacts .contacts__title {
+  flex: 1;
+  flex-basis: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #B3B3B3;
+}
+.user .user__manager .manager__contacts .contcts__link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #fff;
+}
+.user .user__manager .manager__contacts .contcts__link p {
+  display: inline-block;
+}
+.user .user__manager .manager__contacts .contcts__link svg * {
+  fill: #fff;
 }/*# sourceMappingURL=style.css.map */

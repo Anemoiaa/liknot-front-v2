@@ -1,0 +1,19 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+.burger-menu {
+    display: flex; flex-direction: column; gap: 6px; cursor: pointer; 
+    span {display: none; width: 16px; border: 1.4px solid #FAF4F4;}
+    svg {display: block; height: 20px;}
+}
+
+.header {
+    background-color: $dark-blue;
+    .header__container {
+        height: 65px;
+        padding-top: 20px;
+    }
+    .header__lk-toggle {
+        @extend %lk-toggle;
+    }
+}

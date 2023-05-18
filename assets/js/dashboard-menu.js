@@ -13,12 +13,10 @@ $(document).ready(function() {
     });
 
     function openMenu () {
-        $('.menu').removeClass('menu-closed');
-        $('.burger-menu').removeClass('burger-closed');
+        $('body').removeClass('menu-closed');
     }
     function closeMenu() {
-        $('.menu').addClass('menu-closed');
-        $('.burger-menu').addClass('burger-closed');
+        $('body').addClass('menu-closed');
     }
 });
   

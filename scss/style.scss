@@ -7,16 +7,16 @@
 
 
 .menu-closed {
-    .menu__list {
+    .burger-menu {
+        span {display: block;}
+        svg {display: none;}
+    }
+    .menu .menu__list {
         align-items: center;
         .menu__link {
             text-indent: -99999px;       
         }
     }
-}
-.burger-closed {
-    span {display: block;}
-    svg {display: none;}
 }
 
 body {

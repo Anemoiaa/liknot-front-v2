@@ -222,18 +222,17 @@ body {
   background: #555;
 }
 
-.menu-closed .menu__list {
-  align-items: center;
-}
-.menu-closed .menu__list .menu__link {
-  text-indent: -99999px;
-}
-
-.burger-closed span {
+.menu-closed .burger-menu span {
   display: block;
 }
-.burger-closed svg {
+.menu-closed .burger-menu svg {
   display: none;
+}
+.menu-closed .menu .menu__list {
+  align-items: center;
+}
+.menu-closed .menu .menu__list .menu__link {
+  text-indent: -99999px;
 }
 
 body {

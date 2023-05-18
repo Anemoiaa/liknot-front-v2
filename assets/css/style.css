@@ -134,18 +134,18 @@ body {
   vertical-align: middle;
 }
 
-.menu .menu__list::-webkit-scrollbar, .top-offers .top-offers__content::-webkit-scrollbar {
+#online-chat .chat .chat__conversation::-webkit-scrollbar, .menu .menu__list::-webkit-scrollbar, .top-offers .top-offers__content::-webkit-scrollbar {
   width: 4px;
   border-radius: 50px;
 }
-.menu .menu__list::-webkit-scrollbar-track, .top-offers .top-offers__content::-webkit-scrollbar-track {
+#online-chat .chat .chat__conversation::-webkit-scrollbar-track, .menu .menu__list::-webkit-scrollbar-track, .top-offers .top-offers__content::-webkit-scrollbar-track {
   background: transparent;
 }
-.menu .menu__list::-webkit-scrollbar-thumb, .top-offers .top-offers__content::-webkit-scrollbar-thumb {
+#online-chat .chat .chat__conversation::-webkit-scrollbar-thumb, .menu .menu__list::-webkit-scrollbar-thumb, .top-offers .top-offers__content::-webkit-scrollbar-thumb {
   background: #4F4F4F;
   border-radius: 50px;
 }
-.menu .menu__list::-webkit-scrollbar-thumb:hover, .top-offers .top-offers__content::-webkit-scrollbar-thumb:hover {
+#online-chat .chat .chat__conversation::-webkit-scrollbar-thumb:hover, .menu .menu__list::-webkit-scrollbar-thumb:hover, .top-offers .top-offers__content::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
@@ -482,18 +482,18 @@ body {
   font-size: 14px;
 }
 
-.top-offers .top-offers__content::-webkit-scrollbar, .menu .menu__list::-webkit-scrollbar {
+.top-offers .top-offers__content::-webkit-scrollbar, .menu .menu__list::-webkit-scrollbar, #online-chat .chat .chat__conversation::-webkit-scrollbar {
   width: 4px;
   border-radius: 50px;
 }
-.top-offers .top-offers__content::-webkit-scrollbar-track, .menu .menu__list::-webkit-scrollbar-track {
+.top-offers .top-offers__content::-webkit-scrollbar-track, .menu .menu__list::-webkit-scrollbar-track, #online-chat .chat .chat__conversation::-webkit-scrollbar-track {
   background: transparent;
 }
-.top-offers .top-offers__content::-webkit-scrollbar-thumb, .menu .menu__list::-webkit-scrollbar-thumb {
+.top-offers .top-offers__content::-webkit-scrollbar-thumb, .menu .menu__list::-webkit-scrollbar-thumb, #online-chat .chat .chat__conversation::-webkit-scrollbar-thumb {
   background: #4F4F4F;
   border-radius: 50px;
 }
-.top-offers .top-offers__content::-webkit-scrollbar-thumb:hover, .menu .menu__list::-webkit-scrollbar-thumb:hover {
+.top-offers .top-offers__content::-webkit-scrollbar-thumb:hover, .menu .menu__list::-webkit-scrollbar-thumb:hover, #online-chat .chat .chat__conversation::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
@@ -590,6 +590,147 @@ body {
 }
 .menu-closed .menu .menu__list .menu__link {
   text-indent: -99999px;
+}
+
+#online-chat {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  z-index: 999;
+}
+#online-chat button.dropdown-toggle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFC700;
+}
+#online-chat .chat {
+  overflow: overlay;
+  padding: 0;
+  width: 290px;
+  height: 407px;
+  max-height: calc(100vh - 120px);
+  background: #D9D9D9;
+  border-width: 0;
+  border-radius: 12px;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+}
+#online-chat .chat .chat__header {
+  padding: 8px 15px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #300030;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #fff;
+}
+#online-chat .chat .chat__header button.close {
+  opacity: 1;
+  text-shadow: unset;
+}
+#online-chat .chat .chat__header button.close span {
+  line-height: 1.3;
+  font-weight: normal;
+  text-shadow: unset;
+  color: #fff;
+}
+#online-chat .chat .chat__conversation {
+  overflow-y: auto;
+  padding: 8px 15px;
+  height: calc(100% - 100px - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+#online-chat .chat .chat__conversation .conversation__date {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #353535;
+}
+#online-chat .chat .chat__conversation .conversation__message {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#online-chat .chat .chat__conversation .conversation__message .message__info {
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+#online-chat .chat .chat__conversation .conversation__message .message__body {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 12px;
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #FAF4F4;
+}
+#online-chat .chat .chat__conversation .conversation__message .message__timestamp {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.3;
+  color: #100F0F;
+}
+#online-chat .chat .chat__conversation .conversation__message.message-outbox {
+  align-items: flex-end;
+}
+#online-chat .chat .chat__conversation .conversation__message.message-outbox .message__body {
+  border-bottom-right-radius: 0;
+  background-color: #5F005F;
+}
+#online-chat .chat .chat__conversation .conversation__message.message-inbox .message__body {
+  border-bottom-left-radius: 0;
+  background-color: #300030;
+}
+#online-chat .chat .chat__actions {
+  height: 100px;
+  padding: 9px 15px;
+}
+#online-chat .chat .chat__actions label[for=message] {
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+#online-chat .chat .chat__actions label[for=message] input {
+  width: 100%;
+  padding: 11px 45px 11px 10px;
+  font-family: "Manrope";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #000000;
+  outline: none;
+  border-radius: 8px;
+}
+#online-chat .chat .chat__actions label[for=message] .actions__send {
+  position: absolute;
+  height: 18px;
+  right: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background-color: transparent;
+}
+#online-chat .chat .chat__actions .smile, #online-chat .chat .chat__actions .doc {
+  margin-top: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+}
+#online-chat .chat .chat__actions .smile {
+  margin-left: 15px;
 }
 
 body {
@@ -1300,6 +1441,16 @@ body {
   font-size: 14px;
   line-height: 1.3;
   color: #FAF4F4;
+}
+
+.lk-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../img/icons/Arrow - Down 1.svg"); /* Replace with your custom arrow image */
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 20px; /* Adjust as needed */
 }
 
 .with-icon {

@@ -7,7 +7,26 @@
 @import '_variables.scss';
 @import '_mixins.scss';
 
-
+.static {position: static;}
+.logo {
+    a {
+        display: block;
+        width: 100px;
+        height: 22px;
+        background-image: url(../img/logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+.logo.logo-mob {
+    display: flex;
+    justify-content: flex-start;
+    a {
+        width: 18px;
+        height: 25px;
+        background-size: cover;
+    }
+}
 .menu-closed {
     .menu .logo {
         display: flex;
@@ -67,17 +86,7 @@ body {
     padding: 20px 0 $footer-dashboard-h 16px;
     background-color: $dark-blue;
     color: #fff;
-    .logo {
-        a {
-            display: block;
-            width: 100px;
-            height: 22px;
-            background-image: url(../img/logo.png);
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-    }
+    .close {display: none;}
     .menu__list {
         margin-top: 54px;
         height: 100%;
@@ -146,6 +155,10 @@ body {
                 }
             }
         }
+    }
+    .menu__lk-toggle {
+        @extend %lk-toggle;
+        display: none;
     }
 }
 .main {padding-top: 30px;}
@@ -621,3 +634,5 @@ body {
         }
     }
 }
+
+@import '_media.scss';

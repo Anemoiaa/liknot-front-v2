@@ -22,12 +22,15 @@
     <link rel="stylesheet" href="./assets/css/liknot-calendar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="menu-closed">
     <div class="wrapper">
         <header class="header">
             <div class="header__container">
                 <div class="row">
-                    <div class="burger-menu col-lg-1 col-md-1 col-sm-1 col-xs-2 col-md-offset-0 col-sm-offset-10 col-xs-offset-8" data-opened="true">
+                    <div class="logo logo-mob hidden-lg col-md-1 col-sm-1 col-xs-2">
+                        <a href="/"></a>
+                    </div>
+                    <div class="burger-menu col-lg-1 col-md-1 col-sm-1 col-xs-2 col-lg-offset-0 col-md-offset-10 col-sm-offset-10 col-xs-offset-8" data-opened="false">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -36,7 +39,7 @@
                             <path d="M7.53369 1C7.53369 1 1.00036 6.4 1.00036 7C1.00036 7.6 7.53369 13 7.53369 13" stroke="#F6F4F1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                            
                     </div>
-                    <div class="header__lk-toggle col-md-2 col-md-offset-9 hidden-sm hidden-xs">
+                    <div class="header__lk-toggle col-md-2 col-md-offset-9 hidden-md hidden-sm hidden-xs">
                         <span class="key">EN</span>
                         <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
                         <button type="button" class="btn lk-btn " data-toggle="button"
@@ -50,6 +53,7 @@
             </div>
         </header>
         <nav class="menu">
+            <button type="button" class="close">×</button>
             <div class="logo">
                 <a href="/"></a>
             </div>
@@ -152,6 +156,16 @@
                     </a>
                 </li>
                 <li class="menu__item">
+                    <div class="menu__lk-toggle">
+                        <span class="key">EN</span>
+                        <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
+                        <button type="button" class="btn lk-btn " data-toggle="button"
+                            aria-pressed="false">
+                            <span class="circle"></span>
+                        </button>
+                        <!--  -->
+                        <span class="key">RU</span>
+                    </div>
                     <a class="menu__link" href="#">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.33337 12L18.3334 12" stroke="#222628" stroke-width="1.4" stroke-linecap="round"/>
@@ -200,14 +214,14 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="hidden-xs col-lg-6 col-md-7 col-sm-6">
+                                <div class="hidden-xs col-lg-6 col-md-6 col-sm-6">
                                     <div class="income__total">
                                         <h2 class="income__title">Заработано всего</h2>
                                         <p class="income__amount">100₽</p>
                                         <button class="income__show-stats">Показать всю статистику</button>
                                     </div>
                                 </div>
-                                <div class="hidden-xs col-lg-6 col-md-5 col-sm-6 col-lg-offset-0">
+                                <div class="hidden-xs col-lg-6 col-md-6 col-sm-6 col-lg-offset-0">
                                     <div class="income__month" >
                                         <h2 class="income__title">Заработано за месяц</h2>
                                         <p class="income__amount">100₽</p>
@@ -307,7 +321,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <section class="user">
-                            <div class="row row-no-gutters ordering">
+                            <div class="row">
                                 <div class="col-lg-12 col-md-6">
                                     <div class="user__payment-info col-lg-12 col-md-12">
                                         <h2 class="user__name">{user_nickname}</h2>
@@ -388,7 +402,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-5 col-lg-offset-0 col-md-offset-1">
+                                <div class="col-lg-12 col-md-6">
                                     <div class="user__manager">
                                         <h2 class="manager__title">Персональный менеджер</h2>
                                         <hr>

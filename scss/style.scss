@@ -73,7 +73,7 @@ body {
     flex: 1 1 auto;
 }
 
-.header, .main {margin-left: $sidenav-w;}
+.header, .main, .footer {margin-left: $sidenav-w;}
 
 // -----------------------------------------
 
@@ -634,5 +634,131 @@ body {
         }
     }
 }
+
+// Requisites page
+[class*="__form"] {
+    padding: 30px 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(104, 104, 104, 0.25);
+    border-radius: 12px;
+    [class*="__title"] {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.3;
+        color: $gray-8;
+    }
+}
+.lk-label {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 4px;
+    margin-left: 15px;
+    font-family: 'Manrope';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #1A1A1A
+}
+.lk-input[readonly] {padding-right: 40px;}
+.lk-input {
+    padding: 11px 15px 11px 15px;
+    height: auto;
+    border: 1px solid #B8B8B8;
+    border-radius: 8px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $gray-8;
+
+    outline: none;
+    &:focus {
+        border-color: #B8B8B8;
+        -webkit-box-shadow: unset;
+        box-shadow: unset;
+    }
+}
+.lk-submit-btn {
+    padding: 10px 24px;
+    @extend %violet-btn;
+    border-radius: 8px;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $text-white;
+}
+.with-icon {
+    position: relative;
+    .input-icon {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        right: 8.5px;
+        bottom: 10px;    
+    }
+}
+
+.user-form {
+    .user__name {font-size: 32px}
+    .user__form {
+        margin-top: 26px;
+        padding-bottom: 27px;
+        form {margin-top: 20px;}
+        .user__info {
+            display: flex;
+            flex-direction: column;
+            gap: 12.5px;
+            .info__item {
+                display: flex;
+                align-items: center;
+                font-family: 'Manrope';
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 1.3;
+                color: $gray-8;
+                .item__key {width: 35%}
+                .item__value {display: flex; align-items: center; gap: 5px}
+                .item__btn {display: flex; justify-content: center; align-items: center; background-color: transparent}
+            }
+        }
+    }
+}
+
+.referal {
+    margin-top: calc(41.59px + 26px);
+    .refer__form {padding-bottom: 27px;}
+    .referal__description {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #4F4F4F;
+    }
+    form {
+        margin-top: 20px;
+        .lk-submit-btn {width: 100%;}
+    }
+}
+
+.pay {
+    margin-top: 30px;
+    .pay__form {
+        form {margin-top: 20px}
+    }
+}
+.api {
+    margin-top: -255px;
+    .api-docs {
+        margin-left: 15px;
+        padding: 0;
+        background-color: transparent;
+        font-size: 12px
+    }
+    .api-icon {bottom: 28px;}
+}
+
 
 @import '_media.scss';

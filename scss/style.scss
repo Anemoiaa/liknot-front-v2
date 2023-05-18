@@ -344,4 +344,236 @@ body {
         }
     }
 }
+.news-offers-minimum {
+    margin-top: 70px;
+    box-shadow: 0px 4px 10px rgba(104, 104, 104, 0.25);
+    border-radius: 12px;
+    background-color: #fff;
+    ul[role=tablist] {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding-top: 20px;
+        height: 61px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background-color: #262943;
+        li.presentation-separator {display: none;}
+        li {
+            transition: border 0.1s ease-in;
+            text-decoration: none;
+            padding: 0 25px;
+            &.active {border-bottom: 6px solid $yellow;}
+            &:nth-child(1) {width: 20.45%;}
+            &:nth-child(2) {width: 38.43%; }
+            &:nth-child(3) {width: calc(100% - 20.45% - 38.43%);}
+        }
+        li a {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.3;
+            color: $text-white;
+            &:hover, &:active, &:focus {text-decoration: none }
+        }
+    }
+    .tab-content {
+        height: 842px;
+        max-height: 842px;
+        padding: 0 20px;
+        overflow-y: auto ;
+        overflow-x: hidden;
+        position: relative;
+        &::-webkit-scrollbar {width: 4px; border-radius: 50px;}
+        &::-webkit-scrollbar-track {background: transparent;}
+        &::-webkit-scrollbar-thumb {background: #4F4F4F; border-radius: 50px;}
+        &::-webkit-scrollbar-thumb:hover {background: #555;}
+        .show-all-btn {
+            position: sticky;
+            bottom: -2px;
+            padding: 10px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            line-height: 1.3;
+            color: $text-black;
+            background: #fff;
+            outline: none;
+        }
+    }
+    .news {
+        &:first-child {margin-top: 29px;}
+        margin-top: 10px;
+        .news__tag-btn {
+            width: 106px;
+            padding: 5px 0;
+            text-align: center;
+            border-radius: 6px;
+            background-color: #FFC700;
+            outline: none;
+            font-size: 10px;
+            line-height: 1.3;
+            color: $text-black;
+        }
+        .news__title {
+            margin-top: 10px;
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.3;
+            color: $text-black;
+        }
+        .news__date{
+            margin-top: 5px;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.3;
+            color: $gray-4;
+        }
+        .news__body {
+            margin-top: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid $gray-4;
+            font-size: 14px;
+            line-height: 1.3;
+            color: $text-black;
+            ul, ol, dl {list-style-position: inside; margin: 0;}
+        }
+    }
+    .offer, .minimum-in {
+        margin-top: 30px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $gray-4;    
+        &__img {
+            width: 129px;
+            height: 80px;
+            object-fit: cover;
+        }
+        &__body {max-width: 181px;}
+        &__title {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.3;
+            color: $text-black;
+        }
+        &__description {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 12px;
+            color: $gray-4;
+        }
+        &__btn{
+            @extend %violet-btn;
+            margin-left: auto;
+            padding: 11px 33.5px;
+            font-size: 14px;
+            color: #fff;
+            border-radius: 8px;
+        }
+    }
+}
+.top-offers {
+    margin-top: 70px;
+    height: 903px;
+    box-shadow: 0px 4px 10px rgba(104, 104, 104, 0.25);
+    border-radius: 12px;
+    background-color: #fff;
+    .top-offers__header {
+        display: flex;
+        gap: 10px;
+        margin: 0;
+        padding: 20px 20px 0 20px;
+        height: 61px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background-color: #262943;
+    }
+    .top-offers__title {
+        font-family: 'Inter';
+        font-size: 16px;
+        line-height: 1.3;
+        color: $text-white;
+    }
+    .top-offers__content {
+        position: relative;
+        min-height: 440px;
+        max-height: 845px;
+        padding: 0 20px 20px 20px; 
+        overflow-x: auto;
+        @extend %block-scroll;
+    }
+    .top__offers-offer {
+        margin-top: 50px;
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        &:first-child {margin-top: 20px;}
+        &:last-child  {border: none;}
+        .offer__num {
+            padding-top: 14.5px;
+            font-family: 'Mulish';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 1.3;
+            color: $text-black;
+        }
+        .offer__img {width: 90px; height: 50px; object-fit: cover}
+        .offer__body {
+            flex: 1;
+            font-weight: 500;
+        }
+        .offer__title {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.3;
+            color: $text-black;
+        }
+        .offer__description {
+            margin-top: 10px;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.3;
+            color: $gray-4;
+        }
+        .offer__btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 11px 15.5px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.3;
+            color: $text-white;
+            @extend %violet-btn;
+        }
+        .show-all-btn {
+            position: sticky;
+            bottom: -1px;
+            width: calc(100% - 40px);
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            line-height: 1.3;
+            color: $text-black;
+            background: #fff;
+            outline: none;
+        }
+    }
 
+}

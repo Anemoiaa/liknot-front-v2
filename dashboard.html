@@ -18,6 +18,8 @@
     <title>Liknot | Dashboard</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/css/liknot-calendar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -633,6 +635,44 @@
                         </section>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="stats">
+                            <div class="stats__header">
+                                <div class="stats__lk-toggle">
+                                    <span class="key">График</span>
+                                    <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
+                                    <button type="button" class="btn lk-btn" data-toggle="button"
+                                        aria-pressed="false">
+                                        <span class="circle"></span>
+                                    </button>
+                                    <!--  -->
+                                    <span class="key">Статистика</span>
+                                </div>
+                                <div class="stats__period">
+                                    <input type="text" id="stats-period" readonly>
+                                    <time id="stats-period-from"></time>
+                                    <span> — </span>
+                                    <time id="stats-period-to"></time>
+                                    <button id="stats-period-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2" y="4" width="20" height="18" rx="6" stroke="#FAF4F4" stroke-width="1.4"/>
+                                            <path d="M3 9L21 9" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 13H7" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 13H18" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.5 13H12.5" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 17H7" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 17H18" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.5 17H12.5" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <line x1="16.7" y1="2.7" x2="16.7" y2="5.3" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round"/>
+                                            <line x1="7.7" y1="2.7" x2="7.7" y2="5.3" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round"/>
+                                        </svg>                                            
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer class="footer">
@@ -641,7 +681,11 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
     integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
     </script>
-    <script src="./assets/js/bootstrap.min.js"></script> 
-    <script src="./assets/js/dashboard-menu.js"></script> 
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+    <script src="./assets/js/dashboard-menu.js"></script>
+    <script src="./assets/js/init-stats-calendar.js"></script> 
+    
 </body>
 </html>

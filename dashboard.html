@@ -18,14 +18,19 @@
     <title>Liknot | Dashboard</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/css/liknot-calendar.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="menu-closed">
     <div class="wrapper">
         <header class="header">
             <div class="header__container">
                 <div class="row">
-                    <div class="burger-menu col-lg-1 col-md-1 col-sm-1 col-xs-2 col-md-offset-0 col-sm-offset-10 col-xs-offset-8" data-opened="true">
+                    <div class="logo logo-mob hidden-lg col-md-1 col-sm-1 col-xs-2">
+                        <a href="/"></a>
+                    </div>
+                    <div class="burger-menu col-lg-1 col-md-1 col-sm-1 col-xs-2 col-lg-offset-0 col-md-offset-10 col-sm-offset-10 col-xs-offset-8" data-opened="false">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -34,7 +39,7 @@
                             <path d="M7.53369 1C7.53369 1 1.00036 6.4 1.00036 7C1.00036 7.6 7.53369 13 7.53369 13" stroke="#F6F4F1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                            
                     </div>
-                    <div class="header__lk-toggle col-md-2 col-md-offset-9 hidden-sm hidden-xs">
+                    <div class="header__lk-toggle col-md-2 col-md-offset-9 hidden-md hidden-sm hidden-xs">
                         <span class="key">EN</span>
                         <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
                         <button type="button" class="btn lk-btn " data-toggle="button"
@@ -48,6 +53,7 @@
             </div>
         </header>
         <nav class="menu">
+            <button type="button" class="close">×</button>
             <div class="logo">
                 <a href="/"></a>
             </div>
@@ -104,10 +110,10 @@
                         Отчеты
                     </button>
                     <ul class="dropdown-menu nested-menu list-unstyled" aria-labelledby="reports">
-                        <li class="nested-menu__item"><a href="#">Суммарный</a></li>
-                        <li class="nested-menu__item"><a href="#">По конверсиям</a></li>
-                        <li class="nested-menu__item"><a href="#">По источникам</a></li>
-                        <li class="nested-menu__item"><a href="#">По офферам</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">Суммарный</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link active-link" href="#">По конверсиям</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">По источникам</a></li>
+                        <li class="nested-menu__item"><a class="nested-menu__link" href="#">По офферам</a></li>
                     </ul>
                 </li>
                 <li class="menu__item">
@@ -150,6 +156,16 @@
                     </a>
                 </li>
                 <li class="menu__item">
+                    <div class="menu__lk-toggle">
+                        <span class="key">EN</span>
+                        <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
+                        <button type="button" class="btn lk-btn " data-toggle="button"
+                            aria-pressed="false">
+                            <span class="circle"></span>
+                        </button>
+                        <!--  -->
+                        <span class="key">RU</span>
+                    </div>
                     <a class="menu__link" href="#">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.33337 12L18.3334 12" stroke="#222628" stroke-width="1.4" stroke-linecap="round"/>
@@ -164,13 +180,596 @@
         </nav>
         <main class="main">
             <div class="main__container">
-                <div class="row">
-                    <div class="col-lg-6" style="background-color: red;">
-                        <div class="col-lg-6">1</div>
-                        <div class="col-lg-6">2</div>
+                <div id="online-chat" class="dropup">
+                    <button class="dropdown-toggle" type="button" id="chat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_319_524" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                            <path d="M40 0H0V40H40V0Z" fill="white"/>
+                            </mask>
+                            <g mask="url(#mask0_319_524)">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.26985 22.0553C0.831342 20.009 0 17.5907 0 14.9998C0 7.63604 6.71573 1.6665 15 1.6665C23.2843 1.6665 30 7.63604 30 14.9998C30 22.3165 23.3702 28.2565 15.1591 28.3325C15.1062 28.333 15.0531 28.3332 15 28.3332C13.9928 28.3332 13.0088 28.245 12.0572 28.0767C11.9769 28.0625 11.8967 28.0477 11.8168 28.0323C10.9507 27.866 10.1124 27.6332 9.30908 27.3402L2.88457 29.1757C1.62732 29.5348 0.464948 28.3725 0.824163 27.1153L2.26985 22.0553ZM4.3151 20.6177C4.7493 21.2353 4.88108 22.0162 4.67365 22.7422L3.64005 26.3598L8.62228 24.9363C9.12972 24.7913 9.67002 24.8107 10.1658 24.9915C11.6465 25.5317 13.2783 25.8332 15 25.8332C22.1885 25.8332 27.5 20.7142 27.5 14.9998C27.5 9.28544 22.1885 4.1665 15 4.1665C7.81148 4.1665 2.5 9.28544 2.5 14.9998C2.5 17.0417 3.15212 18.9632 4.3151 20.6177Z" fill="#100F0F"/>
+                            <path d="M31.4833 9.63965C31.8928 10.6755 32.187 11.7661 32.3505 12.9008C35.5237 14.9167 37.5 18.181 37.5 21.6666C37.5 23.7085 36.8478 25.63 35.685 27.2845C35.2507 27.9021 35.119 28.683 35.3263 29.409L36.36 33.0266L31.3777 31.6031C30.8703 31.4581 30.33 31.4775 29.8342 31.6583C28.3535 32.1985 26.7218 32.5 25 32.5C22.3265 32.5 19.9127 31.792 17.935 30.6085C16.9763 30.7565 15.9953 30.8333 15 30.8333C14.6931 30.8333 14.3879 30.8261 14.0846 30.812C16.8197 33.3905 20.6983 35 25 35C27.0143 35 28.936 34.647 30.691 34.007L37.1155 35.8425C38.3727 36.2016 39.535 35.0393 39.1758 33.7821L37.7302 28.7221C39.1687 26.6758 40 24.2575 40 21.6666C40 16.367 36.5215 11.7895 31.4833 9.63965Z" fill="#100F0F"/>
+                            </g>
+                        </svg>       
+                    </button>
+                    <div class="chat dropdown-menu dropdown-menu-right" aria-labelledby="chat">
+                        <div class="chat__header">
+                            Начните диалог с менеджером
+                            <button class="close" type="button" data-dismiss="dropdown" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="chat__conversation">
+                            <time class="conversation__date" datetime="2023-01-29">29 января</time>
+                            <div class="conversation__message message-outbox">
+                                <div class="message__body">
+                                    Здравствуйте, я хотел бы задать вопрос по поводу моего заказа.
+                                </div>
+                                <div class="message__info">
+                                    <span class="message__timestamp">12:59</span>
+                                    <span class="message__status">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.41399 2.30833C8.33503 2.24672 8.23479 2.21903 8.13538 2.2314C8.03606 2.24378 7.94566 2.2952 7.88423 2.37432L2.837 8.86391L1.43803 7.77604C1.35908 7.71451 1.25883 7.6869 1.15951 7.69928C1.06011 7.71165 0.969794 7.76299 0.90827 7.84203C0.846742 7.92098 0.819135 8.02122 0.831508 8.12055C0.843881 8.21995 0.895223 8.31026 0.974258 8.37179L2.6711 9.69156C2.75005 9.75317 2.8503 9.78086 2.94971 9.76848C3.04903 9.75611 3.13942 9.70469 3.20086 9.62557L8.47993 2.83819C8.54154 2.75924 8.56923 2.659 8.55686 2.55959C8.54449 2.46027 8.49306 2.36987 8.41394 2.30843L8.41399 2.30833Z" fill="#100F0F"/>
+                                            <path d="M11.0536 2.30833C10.9747 2.24672 10.8744 2.21903 10.775 2.2314C10.6757 2.24378 10.5853 2.2952 10.5239 2.37432L5.473 8.86952L5.01486 8.52636C4.90712 8.44555 4.76437 8.4283 4.64048 8.48124C4.51658 8.53418 4.43039 8.64916 4.41423 8.7829C4.39816 8.91665 4.45463 9.04888 4.56237 9.12968L5.31652 9.6953C5.39556 9.75472 5.49479 9.78073 5.59284 9.76768C5.6909 9.75464 5.77987 9.70355 5.84064 9.62552L11.1197 2.83815C11.1813 2.75919 11.209 2.65895 11.1966 2.55954C11.1843 2.46022 11.1328 2.36982 11.0537 2.30839L11.0536 2.30833Z" fill="#100F0F"/>
+                                        </svg>                                                
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="conversation__message message-inbox">
+                                <div class="message__body">
+                                    Добрый день! Конечно, я готов помочь. Какой у вас вопрос?
+                                </div>
+                                <div class="message__info">
+                                    <span class="message__timestamp">13:01</span>
+                                    <span class="message__status"></span>
+                                </div>
+                            </div>
+                            <div class="conversation__message message-outbox">
+                                <div class="message__body">
+                                    Я не могу отследить мой заказ, хотелось бы узнать его текущее местоположение.
+                                </div>
+                                <div class="message__info">
+                                    <span class="message__timestamp">13:12</span>
+                                    <span class="message__status">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.71191 2.30833C9.63313 2.24672 9.5331 2.21903 9.43391 2.2314C9.3348 2.24378 9.2446 2.2952 9.1833 2.37432L4.14708 8.86391L2.75115 7.77604C2.67238 7.71451 2.57235 7.6869 2.47324 7.69928C2.37406 7.71165 2.28394 7.76299 2.22255 7.84203C2.16116 7.92098 2.13361 8.02122 2.14595 8.12055C2.1583 8.21995 2.20953 8.31026 2.28839 8.37179L3.98154 9.69156C4.06032 9.75317 4.16034 9.78086 4.25954 9.76848C4.35864 9.75611 4.44884 9.70469 4.51014 9.62557L9.77771 2.83819C9.83918 2.75924 9.86681 2.659 9.85447 2.55959C9.84212 2.46027 9.79081 2.36987 9.71186 2.30843L9.71191 2.30833Z" fill="#100F0F"/>
+                                        </svg>                                                
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat__actions">
+                            <label for="message">
+                                <input type="text" id="message" placeholder="Введите сообщение">
+                                <button class="actions__send">
+                                    <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.85105 9.4582L1.51112 11.8377C1.18292 14.1351 1.01882 15.2838 1.58156 15.9093C1.75458 16.1016 1.97908 16.2618 2.21726 16.3627C2.99194 16.6911 4.006 16.1713 6.03412 15.1319C6.78061 14.7493 7.51427 14.3624 8.1665 14C9.24786 13.3992 10.7234 12.5605 12.1548 11.7415C14.0163 10.6762 14.9471 10.1436 15.1146 9.35571C15.1666 9.11115 15.1663 8.84834 15.1139 8.60388C14.9449 7.81629 14.0197 7.28907 12.1693 6.23463C10.9473 5.53829 9.57661 4.76915 8.1665 4C7.33778 3.54797 6.56355 3.13681 5.85119 2.76651C3.94876 1.77758 2.99755 1.28312 2.21941 1.60978C1.98423 1.70851 1.75178 1.87328 1.58075 2.0625C1.01487 2.68859 1.17053 3.77815 1.48183 5.95726L1.85105 8.54179C1.88008 8.74505 1.8946 8.84669 1.8975 8.94892C1.89847 8.98296 1.89847 9.01703 1.8975 9.05107C1.8946 9.15331 1.88008 9.25494 1.85105 9.4582Z" stroke="#100F0F" stroke-width="1.4"/>
+                                        <path d="M7.33301 9L2.33301 9" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round"/>
+                                    </svg>  
+                                </button>                                    
+                            </label>
+                            <button class="doc">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21.4383 11.6622L12.2483 20.8522C11.1225 21.9781 9.59552 22.6106 8.00334 22.6106C6.41115 22.6106 4.88418 21.9781 3.75834 20.8522C2.63249 19.7264 2 18.1994 2 16.6072C2 15.015 2.63249 13.4881 3.75834 12.3622L12.9483 3.17222C13.6989 2.42166 14.7169 2 15.7783 2C16.8398 2 17.8578 2.42166 18.6083 3.17222C19.3589 3.92279 19.7806 4.94077 19.7806 6.00222C19.7806 7.06368 19.3589 8.08166 18.6083 8.83222L9.40834 18.0222C9.03306 18.3975 8.52406 18.6083 7.99334 18.6083C7.46261 18.6083 6.95362 18.3975 6.57834 18.0222C6.20306 17.6469 5.99222 17.138 5.99222 16.6072C5.99222 16.0765 6.20306 15.5675 6.57834 15.1922L15.0683 6.71222" stroke="#300030" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>  
+                            </button>
+                            <button class="smile">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="8.3" stroke="#300030" stroke-width="1.4"/>
+                                    <circle cx="9.5" cy="10.5" r="1.5" fill="#300030"/>
+                                    <circle cx="14.5" cy="10.5" r="1.5" fill="#300030"/>
+                                    <path d="M8 15C9.05263 16.1429 10.3158 17 12 17C13.6842 17 14.9474 16.1429 16 15" stroke="#300030" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg> 
+                            </button>                                  
+                        </div>
                     </div>
-                    <div class="col-lg-6" style="background-color: blue;">112</div>
+                </div>
+                <div class="row ordering">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <section class="income ">
+                            <div class="row">
+                                <div class="col-xs-12 dropdown hidden-sm hidden-md hidden-lg">
+                                    <div class="income__dropdown">
+                                        <button class="income__drop-btn dropdown-toggle" type="button" id="incomeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                          Статистика доходов
+                                          <span class="glyphicon glyphicon-menu-down"></span>
+                                        </button>
+                                        <ul class="dropdown-menu static" aria-labelledby="incomeDropdown">
+                                            <li class="income__total col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <h2 class="income__title">Заработано всего</h2>
+                                                <p class="income__amount">100₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__month col-lg-6 col-md-5 col-sm-6 col-xs-12 col-lg-offset-0 col-md-offset-1">
+                                                <h2 class="income__title">Заработано за месяц</h2>
+                                                <p class="income__amount">100₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__avalibale col-md-12 col-sm-12 col-xs-12">
+                                                <h2 class="income__title">Доступно к выводу / Холд</h2>
+                                                <p class="income__amount">100₽ / 10₽</p>
+                                                <button class="income__show-stats">Показать всю статистику</button>
+                                            </li>
+                                            <li class="income__actions col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <button type="button" class="income__get-pay" data-toggle="modal" data-target="#getPayModal">Вывести средства</button>
+                                                <button class="income__setup">Указать реквизиты</button>
+                                                <button type="button" class="income__payment-rules" data-toggle="modal" data-target="#paymentRules">Порядок оплаты</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-6 col-md-6 col-sm-6">
+                                    <div class="income__total">
+                                        <h2 class="income__title">Заработано всего</h2>
+                                        <p class="income__amount">100₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-6 col-md-6 col-sm-6 col-lg-offset-0">
+                                    <div class="income__month" >
+                                        <h2 class="income__title">Заработано за месяц</h2>
+                                        <p class="income__amount">100₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-md-12 col-sm-12">
+                                    <div class="income__avalibale ">
+                                        <h2 class="income__title">Доступно к выводу / Холд</h2>
+                                        <p class="income__amount">100₽ / 10₽</p>
+                                        <button class="income__show-stats">Показать всю статистику</button>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-lg-12 col-md-12 col-sm-12">
+                                    <div class="income__actions">
+                                        <button type="button" class="income__get-pay" data-toggle="modal" data-target="#getPayModal">Вывести средства</button>
+                                        <button class="income__setup">Указать реквизиты</button>
+                                        <button type="button" class="income__payment-rules" data-toggle="modal" data-target="#paymentRules">Порядок оплаты</button>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="paymentRules">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <h3 class="modal__title">Минимальная сумма вывода</h3>
+                                            <p class="modal__notice">3000 рублей (В некоторых офферах может отличаться. См. в описании оффера).</p>
+                                            <p class="modal__info">
+                                                Запрашивать вывод можно неограниченное количество раз. Помимо стандартных средств для вывода, вы можете пополнить рекламный кабинет прямо из личного кабинета на Liknot.ru в разделе «Агентский кабинет».
+                                            </p>
+                                            <h4 class="modal__second-title">С 01.02.2022 года комиссия на вывод средств:</h4>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <div class="key">Webmoney</div>
+                                                    <div class="value">5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Яндекс</div>
+                                                    <div class="value">2,5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Расчётный счёт<span>(ИП, ООО)</span></div>
+                                                    <div class="value">компенсация налога 3%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Банковская карта<span>(максимальная сумма вывода 250 000)</span></div>
+                                                    <div class="value">3,5% + 99руб.</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Qiwi кошелек</div>
+                                                    <div class="value">2,5%</div>
+                                                </li>
+                                                <li>
+                                                    <div class="key">Банковская карта Украины</div>
+                                                    <div class="value">4%</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="getPayModal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <h3 class="modal__title">При выводе на расчётный счет вы получаете компенсацию 3%.</h3>
+                                            <p class="modal__info">Подробнее можно узнать у вашего менеджера</p>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="payAmount" class="col-md-3 col-sm-4 col-xs-12 control-label">Сумма вывода</label>
+                                                    <div class="col-md-4 col-xs-12">
+                                                      <input type="text" class="form-control" id="payAmount" value="100₽" placeholder="Введите сумму">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3 col-sm-4 col-xs-12 control-label">Способ выплаты</div>
+                                                    <div class="col-md-4 col-xs-12 value">Карта</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3 col-sm-4 col-xs-12 control-label">Реквизиты</div>
+                                                    <div class="col-md-4 col-xs-12 value">1234 5678 1234 5678</div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="payPass" class="col-md-3 col-sm-4 col-xs-12 control-label">Пароль</label>
+                                                    <div class="col-md-4 col-xs-12">
+                                                      <input type="password" class="form-control" id="payPass" placeholder="Введите пароль">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <section class="user">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="user__payment-info col-lg-12 col-md-12">
+                                        <h2 class="user__name">{user_nickname}</h2>
+                                        <hr>
+                                        <div class="payment-info__list">
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Платежная система</div>
+                                                <div class="item__value">
+                                                    <p>Карта</p>
+                                                </div>
+                                            </div>
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Реквизиты</div>
+                                                <div class="item__value" title="1">
+                                                    <p>Укажите реквизиты</p> 
+                                                    <button class="item__btn" title="This is a tooltip This is a tooltip">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="10" stroke="#100F0F" stroke-width="1.4"/>
+                                                            <path d="M10 10.5V10.25C10 9.00736 11.022 8 12.2646 8V8C13.4912 8 14.5 8.99435 14.5 10.2209V10.2209C14.5 10.7252 14.3284 11.2145 14.0133 11.6083L12.5 13.5" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            <path d="M11.7165 16.1053C11.7165 15.6727 12.0672 15.322 12.4999 15.322C12.9325 15.322 13.2832 15.6727 13.2832 16.1053C13.2832 16.538 12.9325 16.8887 12.4999 16.8887C12.0672 16.8887 11.7165 16.538 11.7165 16.1053Z" fill="#100F0F"/>
+                                                            </svg>  
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="payment-info__item">
+                                                <div class="item__key">Статус</div>
+                                                <div class="item__value" title="1">
+                                                    <p>Новичок</p>
+                                                    <button type="button" class="item__btn" title="This is a tooltip This is a tooltip" data-toggle="modal" data-target="#statusModal">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <circle cx="12" cy="12" r="10" stroke="#100F0F" stroke-width="1.4"/>
+                                                            <path d="M10 10.5V10.25C10 9.00736 11.022 8 12.2646 8V8C13.4912 8 14.5 8.99435 14.5 10.2209V10.2209C14.5 10.7252 14.3284 11.2145 14.0133 11.6083L12.5 13.5" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            <path d="M11.7165 16.1053C11.7165 15.6727 12.0672 15.322 12.4999 15.322C12.9325 15.322 13.2832 15.6727 13.2832 16.1053C13.2832 16.538 12.9325 16.8887 12.4999 16.8887C12.0672 16.8887 11.7165 16.538 11.7165 16.1053Z" fill="#100F0F"/>
+                                                            </svg>  
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="statusModal">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <h3 class="modal__title">Уважаемые вебмастера!</h3>
+                                                        <div class="modal__subtitle">В  нашей системе предусмотрено три статуса партнеров — новичок, профи и  эксперт.</div>
+                                                        <p class="modal__info">Все вебмастера после регистрации получают статус «новичок». Партнеры с  этим статусом могут использовать весь функционал системы и  подключать публичные офферы.</p>
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <div class="status-name">Статус «новичок»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со  статусом «новичок» получают заработанные средства после прихода денег от рекламодателя (обычно в  период 15 —  30 (31) число месяца за  трафик предыдущего). 
+                                                                    Некоторые рекламодатели платят чуть быстрее, некоторые чуть дольше стандартных сроков.
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <div class="status-name">Статус «профи»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со статусом «профи» получают проверенные вебмастера, проработавшие с  нами минимум шесть месяцев и  имеющие оборот 250 000 в  месяц и  больше.
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <div class="status-name">Статус «эксперт»</div>
+                                                                <p class="status-description">
+                                                                    Вебмастера со статусом «эксперт» получают проверенные вебмастера с  оборотом более полумиллиона рублей в месяц.
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                        <p class="modal__info">
+                                                            Для получения статуса «профи» или «эксперт» вам надо обратиться к своему менеджеру, он  рассмотрит индивидуально ваше обращение. Статусы «профи» и «эксперт» могут открыть для вас индивидуальные условия сотрудничества. Обратите внимание!
+                                                        </p>
+                                                        <p class="modal__notice">
+                                                            Возможность досрочного вывода вы можете обсудить с  вашим менеджером. Платёжный день —  пятница. Важно. Заявки на  вывод принимаются до 12 часов пятницы. Запросы, сделанные позже, автоматически переносятся на следующий платёжный день.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="user__manager">
+                                        <h2 class="manager__title">Персональный менеджер</h2>
+                                        <hr>
+                                        <ul class="manager__contacts list-unstyled ">
+                                            <h3 class="contacts__title">Напишите нам</h3>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="#">
+                                                    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.0581 16.7438C6.69647 16.7438 5.1949 15.0902 5.1949 13.8493C5.1949 13.2101 5.66367 12.7664 6.30875 12.7664C7.74849 12.7664 7.37247 14.8362 10.0581 14.8362C11.4293 14.8362 12.1888 14.0883 12.1888 13.3229C12.1888 12.8625 11.9641 12.3536 11.0574 12.1288L8.06936 11.381C5.66284 10.776 5.22582 9.47079 5.22582 8.24665C5.22582 5.70058 7.61646 4.74466 9.86255 4.74466C11.9273 4.74466 14.3689 5.89193 14.3689 7.41773C14.3689 8.07284 13.794 8.45387 13.1548 8.45387C11.9273 8.45387 12.1538 6.75176 9.67537 6.75176C8.44788 6.75176 7.76018 7.3066 7.76018 8.10292C7.76018 8.89925 8.72363 9.1541 9.56257 9.34546L11.766 9.83595C14.1817 10.3783 14.7942 11.7963 14.7942 13.1315C14.7942 15.2005 13.2049 16.7447 10.013 16.7447L10.0581 16.7438ZM19.2747 12.6653L19.2505 12.7781L19.2137 12.5775C19.2262 12.6151 19.2505 12.6394 19.263 12.6778C19.3633 12.1138 19.4142 11.5389 19.4142 10.9632C19.4142 9.68554 19.1627 8.44635 18.6639 7.26983C18.1884 6.14345 17.4982 5.12904 16.6359 4.26503C15.7593 3.40186 14.7583 2.71416 13.6319 2.23787C12.5306 1.71061 11.2914 1.46077 10.0155 1.46077C9.41383 1.46077 8.80886 1.51926 8.22478 1.63123L8.32421 1.68136L8.12451 1.65379L8.22394 1.6329C7.41843 1.20173 6.51515 0.972778 5.59766 0.972778C4.10278 0.972778 2.69814 1.55602 1.64028 2.6164C0.582411 3.67593 0 5.08642 0 6.58464C0 7.53973 0.243994 8.47727 0.705243 9.30702L0.721955 9.2034L0.756215 9.40311L0.706079 9.30702C0.610821 9.84598 0.562356 10.3925 0.562356 10.9406C0.562356 12.2191 0.813035 13.4616 1.30102 14.6306C1.77564 15.7687 2.45248 16.7831 3.32902 17.6463C4.19302 18.5236 5.2066 19.198 6.33299 19.6868C7.49781 20.1882 8.737 20.4372 10.013 20.4372C10.5636 20.4372 11.1276 20.387 11.6649 20.2876L11.5655 20.2358L11.766 20.2742L11.6532 20.2993C12.4905 20.7747 13.4297 21.0271 14.4057 21.0271C15.8956 21.0271 17.296 20.4505 18.3606 19.3868C19.4126 18.3348 20 16.921 20 15.4186C20 14.4677 19.7502 13.5285 19.2872 12.6895" fill="#100F0F"/>
+                                                     </svg>
+                                                    <p>Skype</p>    
+                                                </a>
+                                            </li>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="#">
+                                                    <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.3749 7.13488C6.74359 4.79582 10.3236 3.25377 12.1148 2.50873C17.2292 0.381491 18.2919 0.0119658 18.9846 -0.000236111C19.1369 -0.00291979 19.4776 0.034836 19.6982 0.213877C19.8845 0.365055 19.9358 0.569276 19.9603 0.71261C19.9848 0.855944 20.0154 1.18246 19.9911 1.43759C19.714 4.34963 18.5147 11.4164 17.9046 14.6779C17.6465 16.058 17.1382 16.5207 16.6461 16.566C15.5766 16.6644 14.7645 15.8592 13.7287 15.1802C12.1078 14.1177 11.1921 13.4563 9.61879 12.4195C7.80053 11.2213 8.97923 10.5628 10.0155 9.48649C10.2866 9.20483 14.9987 4.91884 15.0899 4.53003C15.1013 4.4814 15.1119 4.30014 15.0042 4.20443C14.8965 4.10872 14.7376 4.14145 14.6229 4.16748C14.4604 4.20438 11.871 5.91584 6.85486 9.30188C6.11988 9.80657 5.45416 10.0525 4.8577 10.0396C4.20015 10.0254 2.93528 9.66779 1.99498 9.36214C0.84166 8.98724 -0.074973 8.78903 0.00484519 8.15234C0.0464194 7.82071 0.503103 7.48156 1.3749 7.13488Z" fill="#100F0F"/>
+                                                    </svg>
+                                                    <p>Telegram</p>    
+                                                </a>
+                                            </li>
+                                            <li class="contacts__item">
+                                                <a class="contcts__link" href="mailto:">
+                                                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.36364 15.0039H4.54545V7.27662L0 3.86753V13.6403C0 14.3948 0.611364 15.0039 1.36364 15.0039Z" fill="#100F0F"/>
+                                                        <path d="M15.4545 15.0039H18.6364C19.3909 15.0039 20 14.3925 20 13.6403V3.86753L15.4545 7.27662" fill="#100F0F"/>
+                                                        <path d="M15.4545 1.36763V7.27662L20 3.86753V2.04945C20 0.363081 18.075 -0.598282 16.7273 0.413081" fill="#100F0F"/>
+                                                        <path d="M4.54545 7.27662L4.54545 1.36753L10 5.45844L15.4545 1.36763V7.27662L10 11.3675" fill="#100F0F"/>
+                                                        <path d="M0 2.04945V3.86753L4.54545 7.27662L4.54545 1.36753L3.27273 0.413081C1.92273 -0.598282 0 0.363081 0 2.04945Z" fill="#100F0F"/>
+                                                    </svg>                                                    
+                                                    <p>E-mail</p>    
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <section class="news-offers-minimum">
+                            <ul class="list-unstyled" role="tablist">
+                                <li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">Новости</a></li>
+                                <li role="presentation"><a href="#spec-offers" aria-controls="spec-offers" role="tab" data-toggle="tab">Спец предложения</a></li>
+                                <li class="presentation-separator"></li>
+                                <li role="presentation"><a href="#minimum-in" aria-controls="minimum-in" role="tab" data-toggle="tab">Минимальный доход</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="news">
+                                    <article class="news">
+                                        <button class="news__tag-btn">Новые офферы</button>
+                                        <h2 class="news__title">Простой оффер с крутой акцией!</h2>
+                                        <time class="news__date" datetime="2022-11-08">08.11.2022</time>
+                                        <div class="news__body">
+                                            <p>
+                                                В новом оффере Баварушка (ID 1019) проходит розыгрыш денежных призов!
+                                                Успейте налить трафик под акцию и хорошо заработать :)
+                                                Все подробности в описании оффера, а также у ваших менеджеров. 
+                                            </p>
+                                            <br>
+                                            <span>Всем профит!</span>
+                                        </div>
+                                    </article>
+                                    <article class="news">
+                                        <button class="news__tag-btn">Акции</button>
+                                        <h2 class="news__title">Отличная акция по кредитке ренессанс!</h2>
+                                        <time class="news__date" datetime="2022-11-08">08.11.2022</time>
+                                        <div class="news__body">
+                                            <p>
+                                                Отличные новости по офферу Банк Ренессанс Кредит - кредитная карта (выдача) (ID 896)!
+                                                Кэшбэк 3000 рублей за Разумную кредитку без комиссий и льготным периодом 145 дней на всё
+                                            </p>
+                                            <br>
+                                            <ul>
+                                                <li>Период акции – 08.11.2022-30.11.2022</li>
+                                                <li>Кэшбэк 3000р за покупки по карте от 3000 рублей</li>
+                                                <li>В первый месяц после оформления снятие и переводы денежных средств без комиссий и без %</li>
+                                            </ul>
+                                            <br>
+                                            <span>Разумная кредитка стала еще лучше!</span>
+                                        </div>
+                                    </article>
+                                    <article class="news">
+                                        <button class="news__tag-btn">Акции</button>
+                                        <h2 class="news__title">Супер повышение!</h2>
+                                        <time class="news__date" datetime="2022-10-14">14.10.2022</time>
+                                        <div class="news__body">
+                                            <p>
+                                                Друзья! По офферу Газпромбанк - Кредитная «Удобная карта» (ID 784) повышение ставки!
+                                                Выплата за выданную карту составит 8125 рублей (ранее 4300)
+                                            </p>      
+                                            <br>
+                                            <p>С 01.10.22 все лиды будут оплачены по новой ставке</p>      
+                                            <br>
+                                            <span>Подключайтесь и зарабатывайте</span> 
+                                        </div>
+                                    </article>
+                                    <button class="show-all-btn">
+                                        Показать все
+                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 6L16 6" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round"/>
+                                            <path d="M12 1C12 1 16.5 5.77214 16.5 6C16.5 6.22786 12 11 12 11" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>    
+                                    </button>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="spec-offers">
+                                    <div class="offer">
+                                        <img class="offer__img" src="./assets/img/smsman-logo.png" alt="smsman-logo" loading="lazy">
+                                        <div class="offer__body">
+                                            <h3 class="offer__title">SMS-MAN</h3>
+                                            <ul class="offer__description list-unstyled">
+                                                <li>Тип трафика: Реферальный</li>
+                                                <li>3.00 % — Полученная СМС</li>
+                                            </ul>
+                                        </div>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                    <div class="offer hidden-xs">
+                                        <img class="offer__img" src="./assets/img/verna-logo.png" alt="verna-logo" loading="lazy">
+                                        <div class="offer__body">
+                                            <h3 class="offer__title">Верна - Страхование жилья (дом)</h3>
+                                            <ul class="offer__description list-unstyled">
+                                                <li>Тип трафика: Реферальный</li>
+                                                <li>11.00 % — От суммы оформленного полиса</li>
+                                            </ul>
+                                        </div>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                    <div class="offer hidden-xs">
+                                        <img class="offer__img" src="./assets/img/verna-logo.png" alt="verna-logo" loading="lazy">
+                                        <div class="offer__body">
+                                            <h3 class="offer__title">Верна - Страхование жилья (дом)</h3>
+                                            <ul class="offer__description list-unstyled">
+                                                <li>Тип трафика: Реферальный</li>
+                                                <li>11.00 % — От суммы оформленного полиса</li>
+                                            </ul>
+                                        </div>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                    <button class="show-all-btn">
+                                        Показать все
+                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 6L16 6" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round"/>
+                                            <path d="M12 1C12 1 16.5 5.77214 16.5 6C16.5 6.22786 12 11 12 11" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>    
+                                    </button>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="minimum-in">
+                                    <div class="minimum-in">
+                                        <img class="minimum-in__img" src="./assets/img/smsman-logo.png" alt="smsman-logo" loading="lazy">
+                                        <div class="minimum-in__body">
+                                            <h3 class="minimum-in__title">SMS-MAN</h3>
+                                            <ul class="minimum-in__description list-unstyled">
+                                                <li>Тип трафика: Реферальный</li>
+                                                <li>3.00 % — Полученная СМС</li>
+                                            </ul>
+                                        </div>
+                                        <button class="minimum-in__btn">Подключить</button>
+                                    </div>
+                                    <button class="show-all-btn">
+                                        Показать все
+                                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 6L16 6" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round"/>
+                                            <path d="M12 1C12 1 16.5 5.77214 16.5 6C16.5 6.22786 12 11 12 11" stroke="#100F0F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>    
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <section class="top-offers">
+                            <div class="top-offers__header">
+                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.88384 0.15C3.77134 0.2625 3.73384 0.3975 3.73384 0.675V1.05H2.30884H0.876335L0.681335 1.245L0.493835 1.4325L0.531335 2.6475C0.568835 4.0275 0.666335 4.4625 1.10884 5.3625C1.64134 6.45 2.47384 7.2825 3.61384 7.8525C4.14634 8.1225 5.09884 8.4 5.47384 8.4C5.64634 8.4 5.82634 8.535 6.34384 9.06C6.71134 9.4275 7.19884 9.825 7.46134 9.975L7.91884 10.2375L7.88134 10.6125C7.76134 11.8575 7.04884 13.59 6.25384 14.58L5.83384 15.105V16.0275V16.95H5.45884C5.18134 16.95 5.04634 16.9875 4.93384 17.1C4.73884 17.295 4.73884 17.655 4.93384 17.85C5.08384 18 5.18134 18 9.50884 18C13.8363 18 13.9338 18 14.0838 17.85C14.1663 17.7675 14.2338 17.6025 14.2338 17.475C14.2338 17.13 14.0013 16.95 13.5588 16.95H13.1838V16.0275V15.105L12.7638 14.58C11.9463 13.5675 11.2713 11.91 11.1363 10.6125L11.0988 10.2375L11.5563 9.975C11.8188 9.825 12.3063 9.4275 12.6738 9.06C13.1913 8.535 13.3713 8.4 13.5438 8.4C13.9188 8.4 14.8713 8.1225 15.4038 7.8525C16.5438 7.2825 17.3763 6.45 17.9088 5.3625C18.3513 4.4625 18.4488 4.0275 18.4863 2.6475L18.5238 1.4325L18.3363 1.245L18.1413 1.05H16.7088H15.2838V0.675C15.2838 0.3975 15.2463 0.2625 15.1338 0.15C14.9838 4.02331e-07 14.8863 4.02331e-07 9.50884 4.02331e-07C4.13134 4.02331e-07 4.03384 4.02331e-07 3.88384 0.15ZM14.2038 1.875C14.1438 2.8725 14.0013 3.75 13.7088 4.845C13.4163 5.9475 13.0638 6.7575 12.5538 7.53C12.0213 8.3325 11.4213 8.88 10.7313 9.2025C10.4313 9.3375 10.1463 9.525 10.1013 9.615C10.0413 9.7275 10.0263 9.9975 10.0638 10.455C10.1538 11.7075 10.5513 13.005 11.1963 14.13C11.3838 14.46 11.5338 14.7375 11.5338 14.7525C11.5338 14.7675 10.6263 14.775 9.50884 14.775C8.39884 14.775 7.48384 14.7675 7.48384 14.7525C7.48384 14.7375 7.63384 14.46 7.82134 14.13C8.46634 13.005 8.86384 11.7075 8.95384 10.455C8.99134 10.005 8.97634 9.7275 8.91634 9.6225C8.87134 9.5325 8.58634 9.3375 8.27884 9.195C6.71134 8.4375 5.60134 6.5775 5.05384 3.7875C4.91134 3.0525 4.78384 1.9725 4.78384 1.44V1.05H9.52384H14.2563L14.2038 1.875ZM3.82384 2.7C3.94384 3.93 4.40134 5.7675 4.82884 6.7275C5.05384 7.2375 5.05384 7.275 4.84384 7.2225C4.11634 7.0425 3.01384 6.3075 2.54884 5.685C1.88884 4.815 1.64134 4.11 1.58134 2.94L1.53634 2.0925L2.65384 2.115L3.77134 2.1375L3.82384 2.7ZM17.4363 2.94C17.3763 4.11 17.1288 4.815 16.4688 5.685C16.0038 6.3075 14.9088 7.0425 14.1738 7.2225C13.9638 7.275 13.9563 7.32 14.3388 6.3225C14.7663 5.235 15.2088 3.255 15.2088 2.4675C15.2088 2.3175 15.2313 2.175 15.2613 2.1525C15.2838 2.1225 15.7938 2.1 16.3938 2.1H17.4813L17.4363 2.94ZM12.1338 16.3875V16.95H9.50884H6.88384V16.3875V15.825H9.50884H12.1338V16.3875Z" fill="#FAF4F4"/>
+                                    <path d="M9.21994 2.45106C9.16744 2.47356 9.00994 2.72106 8.86744 3.00606C8.71744 3.29106 8.57494 3.52356 8.54494 3.52356C8.24494 3.52356 7.48744 3.71106 7.38994 3.80106C7.31494 3.86856 7.25494 4.02606 7.25494 4.16856C7.25494 4.37106 7.32994 4.49106 7.63744 4.78356L8.02744 5.15856L7.95994 5.66856C7.88494 6.29856 7.89994 6.44106 8.05744 6.61356C8.23744 6.81606 8.50744 6.78606 9.03994 6.50856L9.50494 6.26106L9.97744 6.50856C10.5024 6.78606 10.7724 6.81606 10.9524 6.61356C11.1099 6.44106 11.1249 6.29856 11.0499 5.66856L10.9824 5.15856L11.3724 4.78356C11.6799 4.49106 11.7549 4.37106 11.7549 4.16856C11.7549 4.02606 11.6949 3.86856 11.6199 3.80106C11.5224 3.71106 10.7649 3.52356 10.4649 3.52356C10.4349 3.52356 10.2924 3.29106 10.1499 3.00606C10.0074 2.72106 9.83494 2.47356 9.76744 2.44356C9.62494 2.39106 9.36244 2.39106 9.21994 2.45106ZM9.66994 4.31106C9.75244 4.41606 9.88744 4.49856 9.96994 4.49856C10.1124 4.49856 10.1124 4.50606 9.99994 4.68606C9.93244 4.78356 9.87994 4.94856 9.87994 5.03856C9.87994 5.19606 9.84244 5.21106 9.50494 5.21106C9.16744 5.21106 9.12994 5.19606 9.12994 5.03856C9.12994 4.94856 9.07744 4.78356 9.00994 4.68606C8.88994 4.50606 8.89744 4.49856 9.03994 4.49856C9.12994 4.49856 9.25744 4.41606 9.33244 4.31106C9.40744 4.21356 9.48244 4.12356 9.49744 4.12356C9.51244 4.12356 9.58744 4.20606 9.66994 4.31106Z" fill="#FAF4F4"/>
+                                </svg>
+                                <h2 class="top-offers__title">Топ офферов</h2>    
+                            </div>
+                            <div class="top-offers__content">
+                                <div class="top__offers-offer">
+                                    <span class="offer__num">1</span>
+                                    <img class="offer__img" src="./assets/img/renessans-logo.png" alt="renessans-logo" loading="lazy">
+                                    <div class="offer__body">
+                                        <h3 class="offer__title">Банк Ренессанс Кредит - кредитная карта (выдача)</h3>
+                                        <ul class="offer__description list-unstyled">
+                                            <li>Тип трафика: Реферальный</li>
+                                            <li>5600.00 ₽ — Выдача карты новому клиенту</li>
+                                        </ul>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                </div>
+                                <div class="top__offers-offer">
+                                    <span class="offer__num">2</span>
+                                    <img class="offer__img" src="./assets/img/tinkoff-logo.png" alt="tinkoff-logo" loading="lazy">
+                                    <div class="offer__body">
+                                        <h3 class="offer__title">Тинькофф Банк — кредитная карта Platinum</h3>
+                                        <ul class="offer__description list-unstyled">
+                                            <li>Тип трафика: Реферальный</li>
+                                            <li>4100.00 ₽ — Активация</li>
+                                        </ul>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                </div>
+                                <div class="top__offers-offer">
+                                    <span class="offer__num">3</span>
+                                    <img class="offer__img" src="./assets/img/tinkoff-logo.png" alt="tinkoff-logo" loading="lazy">
+                                    <div class="offer__body">
+                                        <h3 class="offer__title">Тинькофф Банк — дебетовая карта Drive Debit</h3>
+                                        <ul class="offer__description list-unstyled">
+                                            <li>Тип трафика: Реферальный</li>
+                                            <li>1240.00 ₽ — за выданную карту (активация + транзакция)</li>
+                                        </ul>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                </div>
+                                <div class="top__offers-offer">
+                                    <span class="offer__num">4</span>
+                                    <img class="offer__img" src="./assets/img/alfa-bank-logo.png" alt="alfa-bank-logo" loading="lazy">
+                                    <div class="offer__body">
+                                        <h3 class="offer__title">Альфа Банк — Дебетовая карта Альфа-Карта</h3>
+                                        <ul class="offer__description list-unstyled">
+                                            <li>Тип трафика: Реферальный</li>
+                                            <li>1340.00 ₽ — От 1 активной продажи</li>
+                                        </ul>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                </div>
+                                <div class="top__offers-offer">
+                                    <span class="offer__num">5</span>
+                                    <img class="offer__img" src="./assets/img/zaymer-logo.png" alt="zaymer-logo" loading="lazy">
+                                    <div class="offer__body">
+                                        <h3 class="offer__title">Займер (CPA)</h3>
+                                        <ul class="offer__description list-unstyled">
+                                            <li>Тип трафика: Реферальный</li>
+                                            <li>3040.00 ₽ — Выданный займ</li>
+                                        </ul>
+                                        <button class="offer__btn">Подключить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="stats">
+                            <div class="stats__header">
+                                <div class="stats__lk-toggle">
+                                    <span class="key">График</span>
+                                    <!-- https://getbootstrap.com/docs/3.4/javascript/#buttons-single-toggle -->
+                                    <button type="button" class="btn lk-btn" data-toggle="button"
+                                        aria-pressed="false">
+                                        <span class="circle"></span>
+                                    </button>
+                                    <!--  -->
+                                    <span class="key">Статистика</span>
+                                </div>
+                                <div class="stats__period">
+                                    <input type="text" id="stats-period" readonly>
+                                    <time id="stats-period-from"></time>
+                                    <span> — </span>
+                                    <time id="stats-period-to"></time>
+                                    <button id="stats-period-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2" y="4" width="20" height="18" rx="6" stroke="#FAF4F4" stroke-width="1.4"/>
+                                            <path d="M3 9L21 9" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 13H7" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 13H18" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.5 13H12.5" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 17H7" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 17H18" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.5 17H12.5" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <line x1="16.7" y1="2.7" x2="16.7" y2="5.3" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round"/>
+                                            <line x1="7.7" y1="2.7" x2="7.7" y2="5.3" stroke="#FAF4F4" stroke-width="1.4" stroke-linecap="round"/>
+                                        </svg>                                            
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -180,7 +779,11 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
     integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
     </script>
-    <script src="./assets/js/bootstrap.min.js"></script> 
-    <script src="./assets/js/dashboard-menu.js"></script> 
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+    <script src="./assets/js/dashboard-menu.js"></script>
+    <script src="./assets/js/init-stats-calendar.js"></script> 
+    
 </body>
 </html>

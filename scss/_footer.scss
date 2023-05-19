@@ -1,0 +1,88 @@
+@import '_variables.scss';
+
+.footer {
+    margin-top: 80px;
+    padding-top: 70px;
+    padding-bottom: 60px;
+    background-color: $dark-blue-2;
+    .footer__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .footer__logo {width: 255px; height: 52px; img{max-width: unset;}}
+        .footer__actions {
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.3;
+            color: #fff;
+            button {
+                width: 206px;
+                padding: 21px 0;
+                border-radius: 12px;
+            }
+            .footer__master {
+                background-color: #5F005F;
+                margin-right: 32px;
+            }
+            .footer__advertiser {
+                background-color: transparent;
+                border: 2px solid #FFFFFF;
+            }
+        }
+    }
+    .footer__body {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Inter';
+        line-height: 1.3;
+        & > div {display: flex; flex-direction: column; height: 285px;}
+        & div:last-child {width: 448px;}
+        .footer__copy {
+            font-weight: 500;
+            font-size: 16px;
+            color: #fff;
+        }
+        .footer__menu {
+            margin-top: 38px;
+            .menu__list {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .item__link {
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #fff;
+                }
+            }
+        }
+        .footer__legal {
+            display: block;
+            margin-top: auto;
+            font-weight: 400;
+            font-size: 18px;
+            text-decoration-line: underline;
+            color: #D2D2D2;
+        }
+        .footer__adress, .footer__phone, .footer__email {
+            display: flex;
+            gap: 10px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.3;
+            color: #fff;
+        }
+        .footer__adress {margin-top: 38px;}
+        .footer__phone {margin-top: 56px;}
+        .footer__email {margin-top: 15.5px;}
+        .footer__development {
+            display: block;
+            margin-top: auto;
+            font-weight: 400;
+            font-size: 18px;
+            text-decoration-line: underline;
+            color: #D2D2D2;
+        }
+    }
+}

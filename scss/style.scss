@@ -7,6 +7,9 @@
 @import '_variables.scss';
 @import '_mixins.scss';
 
+.bg-l-gray {
+    background-color: #F9F9FF;
+}
 .static {position: static;}
 .logo {
     a {
@@ -225,7 +228,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px 0 $footer-dashboard-h 16px;
+    padding: 20px 0 15px 16px;
     background-color: $dark-blue;
     color: #fff;
     .close {display: none;}
@@ -899,6 +902,7 @@ body {
 }
 .api {
     margin-top: -255px;
+    margin-bottom: 30px;
     .api-docs {
         margin-left: 15px;
         padding: 0;

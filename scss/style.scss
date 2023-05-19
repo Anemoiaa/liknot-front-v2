@@ -825,6 +825,7 @@ body {
 }
 .lk-submit-btn {
     padding: 10px 24px;
+    width: 235px;
     @extend %violet-btn;
     border-radius: 8px;
     font-family: 'Manrope';
@@ -888,7 +889,6 @@ body {
     }
     form {
         margin-top: 20px;
-        .lk-submit-btn {width: 100%;}
     }
 }
 .pay {

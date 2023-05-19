@@ -1434,6 +1434,7 @@ body {
 
 .lk-submit-btn {
   padding: 10px 24px;
+  width: 235px;
   border-radius: 8px;
   font-family: "Manrope";
   font-style: normal;
@@ -1517,9 +1518,6 @@ body {
 .referal form {
   margin-top: 20px;
 }
-.referal form .lk-submit-btn {
-  width: 100%;
-}
 
 .pay {
   margin-top: 30px;
@@ -1598,6 +1596,10 @@ body {
   }
   .top-offers .top__offers-offer {
     margin-top: 30px;
+  }
+  .lk-submit-btn {
+    width: 190px;
+    padding: 10px 20px;
   }
 }
 @media (max-width: 991.5px) {
@@ -1786,6 +1788,9 @@ body {
   }
   .api {
     margin-top: 30px;
+  }
+  .lk-submit-btn {
+    width: 220px;
   }
 }
 @media (max-width: 767.5px) {
@@ -2105,6 +2110,9 @@ body {
     margin: 0;
   }
   .footer .footer__head .footer__actions button {
+    width: 100%;
+  }
+  .lk-submit-btn {
     width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

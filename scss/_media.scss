@@ -42,6 +42,8 @@
         .top-offers__content {max-height: 870px;}
         .top__offers-offer {margin-top: 30px;}
     }
+    .lk-submit-btn {width: 190px; padding: 10px 20px;}
+
     
 }
 @media (max-width: 991.5px) {
@@ -194,6 +196,7 @@
         }
     }
     .api {margin-top: 30px;}
+    .lk-submit-btn {width: 220px;}
 }
 @media(max-width: 767.5px) {
     .modal-dialog {max-width: 534px;}
@@ -461,4 +464,5 @@
             }
         }
     }
+    .lk-submit-btn {width: 100%;}
 }

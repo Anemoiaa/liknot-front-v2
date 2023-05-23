@@ -17,6 +17,9 @@
   right: 0;
   padding: 0;
   width: unset;
+  max-height: 555px;
+  justify-content: center;
+  align-items: center;
   overflow-y: auto;
   z-index: 99999;
   justify-content: center;
@@ -38,8 +41,8 @@
 }
 .menu .menu__list {
   margin-top: 0;
-  padding: 26px 0 15px 18px;
-  max-width: 605px;
+  padding: 26px 0 15px 18px; 
+  max-width: 600px;
   max-height: 450px;
   display: flex;
   flex-direction: row;
@@ -191,6 +194,15 @@
   }
 }
 @media (max-width: 991.5px) {
+  .menu {
+    max-height: unset;
+    justify-content: unset;
+    align-items: unset;
+  }
+  .menu .menu__list {
+    max-height: 300px;
+    max-width: 576px;
+  }
   .programm {
     margin-top: 40px;
   }
